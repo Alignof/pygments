@@ -104,10 +104,10 @@ class RustLexer(RegexLexer):
             # Prelude (taken from Rust's src/libstd/prelude.rs)
             builtin_funcs_types,
             builtin_macros,
-            # Path seperators, so types don't catch them.
-            (r'::\b', Text),
+            # Path separators, so types don't catch them.
+            (r'::\b', Operator),
             # Types in positions.
-            (r'(?::|->)', Text, 'typename'),
+            (r'(?::|->)', Operator, 'typename'),
             # Labels
             (r'(break|continue)(\b\s*)(\'[A-Za-z_]\w*)?',
              bygroups(Keyword, Text.Whitespace, Name.Label)),
